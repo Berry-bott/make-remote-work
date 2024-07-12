@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.dropbtn{
+    /* background-color: aqua; */
+    color: blueviolet;
+    padding: 15px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+.drop-content{
+    display: none;
+    position: absolute;
+    background-color: black;
+    max-width: fit-content;
+    z-index: 1;
+}
+.drop-content a{
+    color: aliceblue;
+    padding: 12px 15px;
+    text-decoration:none;
+    display: block;
+}
+.drop-content a:hover{
+    background-color: blue;
+}
+.dropdown:hover .drop-content{
+    display: block;
+}
