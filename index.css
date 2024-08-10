@@ -258,13 +258,16 @@ input {
 
 .home_content {
     display: flex;
-    /* padding-top:-3rem; */
     width: min(100%, 1000px);
     border: 3px solid black;
 }
 
 .text-wrapper {
     padding-left: 1rem;
+}
+
+.open {
+    display: none;
 }
 
 h1 {
@@ -275,23 +278,6 @@ h1 {
 
 p {
     color: var(---color2);
-}
-
-button {
-    margin-top: 3rem;
-    padding: 10px 17px;
-    border-radius: 15px;
-    color: var(---color2);
-    background-color: var(---primary_color);
-    font-size: 15px;
-    border: 1px solid rgb(20, 9, 9);
-    outline: none;
-    cursor: pointer;
-}
-
-button:hover {
-    color: var(---color);
-    background-color: var(---secondary_color);
 }
 
 img {
@@ -588,7 +574,7 @@ span {
     font-size: 1.2rem;
 }
 
-.faq p {
+.faq p{
     margin-top: 0.8rem;
     display: none;
 }
@@ -874,7 +860,7 @@ span {
     }
 
     .text-wrapper p {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .img-tag img {

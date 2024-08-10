@@ -1,17 +1,18 @@
 const bar = document.querySelector('.bars');
 const link = document.querySelector('.carrier');
 const sun = document.querySelector('.light');
-const l = document.querySelector('.l');
+const btn = document.querySelector('.btn');
 const search = document.querySelector('.search');
 const form_ = document.querySelector('.input');
-const faqs = document.querySelectorAll('.faq');
+const faq = document.querySelectorAll('.faq');
 const direc = document.querySelector('.direction');
-const links = document.querySelectorAll('.links');
-const ancho = document.querySelector('.ancho');
+const ancho = document.querySelectorAll('.ancho');
+const moreText = document.querySelector(".more-text");
+
 
 // FOR TOGGLING  ------######
 
-bar.addEventListener('click', togle)
+bar.addEventListener('click', togle);
 
 function togle() {
 
@@ -25,7 +26,7 @@ function togle() {
     link.classList.toggle('effect');
 }
 
-links.forEach((ancho) => {
+ancho.forEach((ancho) => {
     ancho.addEventListener('click', togle)
 
 })
@@ -48,7 +49,7 @@ window.addEventListener('scroll', () => {
 })
 // ----FOR FAQS----
 
-faqs.forEach((faq) => {
+faq.forEach((faq) => {
     faq.addEventListener('click', () => {
         faq.classList.toggle('open');
         if (faq.classList.contains('open')) {
@@ -67,5 +68,17 @@ faqs.forEach((faq) => {
         }
     })
 })
+// btn.forEach((btn)=>{
+//     btn.addEventListener('click',()=>{
+//         moreText.classList.toggle('open')
+//         // moreText.style.display='block';
+//     })
+// })
+btn.addEventListener('click',more);
 
+
+function more(){
+
+    moreText.classList.toggle('open');
+}
 
