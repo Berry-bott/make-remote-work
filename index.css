@@ -1,9 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     outline: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 :root {
@@ -11,17 +16,22 @@
     ---secondary_color: #A969BF;
     ---color: #2e1735;
     ---color2: #D6B8E0;
+    ---roboto-regular {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      };
 }
 
 
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
     user-select: none;
     color: var(---color2);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 nav {
@@ -36,7 +46,7 @@ nav {
 }
 
 section {
-    padding: 8rem 0 2rem !important;
+    padding: 7rem 0 2rem !important;
 }
 
 .wrapper {
@@ -70,6 +80,15 @@ section {
     border: .1px solid var(---color2);
 }
 
+.window-scroll .dropdown-content a {
+    color: var(---color2);
+    background-color: var(---secondary_color);
+}
+
+.window-scroll .dropdown-content a:hover {
+    color: var(---primary_color);
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -80,7 +99,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .carrier {
@@ -102,10 +121,6 @@ section {
     background-color: transparent;
 }
 
-#list-drop {
-    color: rgb(211, 208, 208);
-    font-size: 20px;
-}
 
 .links a {
     text-decoration: none;
@@ -191,7 +206,6 @@ section {
 
 .form {
     display: flex;
-    /* height: 20%; */
 }
 
 input {
@@ -211,13 +225,40 @@ input {
     border-bottom-right-radius: 20px;
 }
 
-.dropdown-content{
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.drop-btn {
+    color: black;
+}
+
+.dropdown-content {
     display: none;
+    position: absolute;
+    margin-left: -50px;
+    height: 202px;
+    z-index: 1;
+    border: none;
+    background-color: var(---primary_color);
+    min-width: 130px;
+    box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .home_content {
     display: flex;
-    padding-top: 2rem;
+    /* padding-top:-3rem; */
     width: min(100%, 1000px);
     border: 3px solid black;
 }
@@ -254,15 +295,15 @@ button:hover {
 }
 
 img {
-    height: 510px;
     width: 420px;
+    max-width: 90%;
 }
 
 .img-tag {
     position: relative;
     right: 10px;
     bottom: 5rem;
-    left: 150px;
+    left: 80px;
 }
 
 .down-gift img {
@@ -303,7 +344,6 @@ img {
 .about-title h2 {
     font-size: 40px;
     text-transform: uppercase;
-    font-family: sans-serif;
     color: var(---color);
 }
 
@@ -319,7 +359,6 @@ img {
 .about-text h4 {
     font-size: 24px;
     padding-bottom: 10px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .about-text p {
@@ -327,7 +366,6 @@ img {
     word-spacing: 2px;
     font-size: 20px;
     color: var(---primary_color);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .card {
@@ -452,7 +490,6 @@ img {
     text-transform: uppercase;
     margin-bottom: 2.4rem;
     color: var(---color);
-    font-family: sans-serif;
 }
 
 span {
@@ -493,13 +530,11 @@ span {
 .course-infro p {
     margin: 1rem 0 2rem;
     color: var(---color2);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .course-infro h4 {
     color: var(---color);
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .course-infro .btn {
@@ -518,7 +553,6 @@ span {
 .faqs h2 {
     text-align: center;
     font-size: 40px;
-    font-family: sans-serif;
     padding-bottom: 2rem;
     color: var(---color);
 
@@ -573,7 +607,6 @@ span {
 .testimonials {
     margin: 0 auto;
     position: relative;
-    /* background-color: var(---color ); */
 }
 
 .testimonials h2 {
@@ -599,14 +632,14 @@ span {
     width: 0;
 }
 
-/* .direction {
+.direction {
     position: relative;
     bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 2rem;
-} */
+}
 
 .testimonial {
     border: 1px solid var(---secondary_color);
@@ -773,16 +806,15 @@ span {
         flex-direction: column;
         position: absolute;
         top: 2.8rem;
-        left: -120%;
+        left: -135%;
         right: 0;
-        width: 100%;
+        width: 90vw;
         height: fit-content;
         gap: 4rem;
         background-color: var(---secondary_color);
         padding: 2rem 0;
-        transition: 1s all;
+        transition: .5s all;
         z-index: 5;
-
     }
 
     .effect {
@@ -809,6 +841,10 @@ span {
         color: var(---color2);
     }
 
+    .links a:hover::after {
+        width: 96%;
+    }
+
     .form {
         margin-bottom: 3rem;
     }
@@ -818,13 +854,18 @@ span {
         width: 100%;
     }
 
+    .dropdown {
+        display: none;
+    }
+
     .home_content {
         flex-direction: column;
         position: relative;
+        margin-top: -2.5rem;
     }
 
     .text-wrapper {
-        margin-bottom: 6rem;
+        margin-bottom: 5rem;
     }
 
     .text-wrapper h1 {
@@ -841,10 +882,9 @@ span {
     }
 
     .img-tag {
-        margin: 1rem auto;
+        margin: 1rem;
         position: relative;
-        left: 5px;
-        padding: 1rem 2rem;
+        left: 0;
     }
 
     .down-gift {
@@ -853,19 +893,19 @@ span {
         left: 0;
         max-width: 100%;
         padding-bottom: 1rem;
-        flex-wrap: wrap;
+        height: 50px;
     }
 
     .down-gift img {
-        max-width: 200px;
+        width: 50px;
         height: 20px;
+        margin: 0px 10px;
     }
 
     .about-max {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-
     }
 
     .about-content {
@@ -875,15 +915,12 @@ span {
         justify-content: center;
         align-items: center;
         width: 100%;
+    }
+
+    .about-text p {
+        text-align: left;
+        font-size: 20px;
         padding: 0 1rem;
-    }
-
-    .about-title {
-        text-align: center;
-    }
-
-    .about-text {
-        padding: 0 2rem;
     }
 
     .card {
@@ -909,9 +946,14 @@ span {
 
     .testimonial {
         animation: none;
-
     }
-
+    
+.testimonial_body {
+    padding:2.5rem  1rem 10px  ;
+    margin-top: 2rem;
+    width: 350px;
+    font-size: 17px;
+}
 }
 
 
@@ -926,7 +968,6 @@ span {
     }
 
     .form {
-        /* width: 50px; */
         float: left;
         margin: 0 2rem;
     }
@@ -949,12 +990,25 @@ span {
         padding: 10px;
     }
 
+    .down-gift {
+        max-width: 100%;
+    }
+
+    .down-gift img {
+        width: 30px;
+    }
+
     .about .card {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         width: 100%;
+
+    }
+
+    .card .about-card {
+        width: fit-content;
     }
 
     .courses-container {

@@ -1,25 +1,36 @@
-var bar = document.querySelector('.bars');
-var link = document.querySelector('.carrier');
-var sun = document.querySelector('.light');
-var l = document.querySelector('.l');
-var search = document.querySelector('.search');
-var form_ = document.querySelector('.input')
-const faqs =document.querySelectorAll('.faq');
-const direc = document.querySelector('.direction')
+const bar = document.querySelector('.bars');
+const link = document.querySelector('.carrier');
+const sun = document.querySelector('.light');
+const l = document.querySelector('.l');
+const search = document.querySelector('.search');
+const form_ = document.querySelector('.input');
+const faqs = document.querySelectorAll('.faq');
+const direc = document.querySelector('.direction');
+const links = document.querySelectorAll('.links');
+const ancho = document.querySelector('.ancho');
 
-// FOR TOGGLING------######
+// FOR TOGGLING  ------######
 
-bar.addEventListener('click', function () {
+bar.addEventListener('click', togle)
+
+function togle() {
+
     let svg = bar.querySelector('svg');
     if (svg.classList.contains('fa-bars')) {
-        svg.classList.replace('fa-bars','fa-times')
+        svg.classList.replace('fa-bars', 'fa-times');
     }
     else {
-        svg.classList.replace('fa-times', 'fa-bars')
-
+        svg.classList.replace('fa-times', 'fa-bars');
     }
-    link.classList.toggle('effect')
+    link.classList.toggle('effect');
+}
+
+links.forEach((ancho) => {
+    ancho.addEventListener('click', togle)
+
 })
+
+
 
 // FOR ----SEARCH BARS---
 
@@ -30,33 +41,31 @@ search.addEventListener('click', function () {
 })
 
 // ------FOR SCROLL BARS----
-window.addEventListener('scroll',()=>{
-document.querySelector('nav').classList.toggle('window-scroll',window.scrollY>100)
+
+window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('window-scroll', window.scrollY > 100)
 
 })
 // ----FOR FAQS----
-faqs.forEach((faq)=>{
-faq.addEventListener('click',()=>{
-    faq.classList.toggle('open');
-    if(faq.classList.contains('open')){
-        faq.classList.add('pink');
-    }else{
-        
-        faq.classList.remove('pink');
-    }
- 
 
-    const icon =faq.querySelector('svg');
-    if(icon.classList.contains('fa-plus')){
-        icon.classList.replace('fa-plus','fa-minus');
-    }
-    else{
-        icon.classList.replace('fa-minus','fa-plus');
-    }
-})
+faqs.forEach((faq) => {
+    faq.addEventListener('click', () => {
+        faq.classList.toggle('open');
+        if (faq.classList.contains('open')) {
+            faq.classList.add('pink');
+        } else {
+
+            faq.classList.remove('pink');
+        }
+
+        const icon = faq.querySelector('svg');
+        if (icon.classList.contains('fa-plus')) {
+            icon.classList.replace('fa-plus', 'fa-minus');
+        }
+        else {
+            icon.classList.replace('fa-minus', 'fa-plus');
+        }
+    })
 })
 
-link.forEach((a)=>{
-
-})
 
