@@ -706,7 +706,7 @@ span {
 /* ----foter----- */
 
 .foter {
-    border: 1px solid #000;
+    padding-top: 1rem;
     background-color: var(---secondary_color);
 }
 
@@ -856,7 +856,7 @@ span {
     }
 
     .dropdown {
-        display: none;
+        /* display: none; */
     }
 
     .home_content {
