@@ -1,7 +1,7 @@
 const bar = document.querySelector('.bars');
 const link = document.querySelector('.carrier');
 const sun = document.querySelector('.light');
-const btn = document.querySelector('.btn');
+const btn = document.querySelectorAll('.btn');
 const search = document.querySelector('.search');
 const form_ = document.querySelector('.input');
 const faq = document.querySelectorAll('.faq');
@@ -68,17 +68,20 @@ faq.forEach((faq) => {
         }
     })
 })
-// btn.forEach((btn)=>{
-//     btn.addEventListener('click',()=>{
-//         moreText.classList.toggle('open')
-//         // moreText.style.display='block';
-//     })
-// })
-btn.addEventListener('click',more);
+btn.forEach((btn)=>{
+    btn.addEventListener('click',()=>{
+        moreText.classList.toggle('open')
+        // moreText.style.display='block';
+    })
+})
+btn.addEventListener('click',()=>{
+    
+})
+// btn.addEventListener('click',more);
 
 
-function more(){
+// function more(){
 
-    moreText.classList.toggle('open');
-}
+//     moreText.classList.toggle('open');
+// }
 
