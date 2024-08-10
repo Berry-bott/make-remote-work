@@ -706,6 +706,7 @@ span {
 /* ----foter----- */
 
 .foter {
+    border: 1px solid #000;
     background-color: var(---secondary_color);
 }
 
@@ -953,6 +954,10 @@ span {
     margin-top: 2rem;
     width: 350px;
     font-size: 17px;
+}
+.foter1{
+    padding-top: 1rem;
+    margin-top: 0;
 }
 }
 
