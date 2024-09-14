@@ -351,8 +351,7 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: fit-content;
-  border: 1px solid #000;
-  /* margin-top: 6rem; */
+  margin-top: 6rem;
 }
 
 .btn {
