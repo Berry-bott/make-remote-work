@@ -43,7 +43,7 @@ header nav {
 }
 
 section {
-  padding: 7rem 0 2rem !important;
+  padding: 5rem 0 2rem !important;
 }
 
 .wrapper {
@@ -331,7 +331,7 @@ img {
 
 .about-text {
   padding: 10px 0;
-   height: 400px;
+   height: 550px;
   overflow: scroll;
 }
 
@@ -351,12 +351,14 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: fit-content;
+  border: 1px solid #000;
+  /* margin-top: 6rem; */
 }
 
 .btn {
   background-color: var(---primary_color);
   padding: 10px;
-  margin: 2rem 0;
+  margin: 3rem 0;
   display: inline-block;
   color: var(---color2);
   position: relative;
@@ -896,6 +898,10 @@ span {
     justify-content: center;
     align-items: center;
     width: 100%;
+  }
+
+  .about-text{
+    max-height: 320px;
   }
 
   .about-text p {
