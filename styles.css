@@ -18,12 +18,16 @@
 
 .Archievement_container {
     display: grid;
-    grid-template-columns: 40% 50%;
-    gap: 2.5rem;
+    grid-template-columns: 40% 60%;
+
+}
+.Archievement_left img {
+    border: 1px solid #000;
+    margin: 0 auto !important;
 
 }
 
-.Archievement_right>p {
+.Archievement_right>p{
     margin: 1.6rem 0 3rem;
     display: flex;
     flex-wrap: wrap;
@@ -157,20 +161,34 @@
 
     .Archievement {
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
+        margin: 0 auto !important;
+        padding: 0;
+
     }
 
     .Archievement_container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
+        grid-template-columns: 1fr !important;
+        /* gap: 4rem; */
     }
 
     .Archievement_left {
         margin: 0 auto !important;
         gap: 0;
+        margin-left: -2rem !important;
     }
 
+.Archievement_right>h1{
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    max-width: 500px;
+}
+.Archievement_right p{
+    padding: 1rem;
+}
 
     .team_container {
         grid-template-columns: repeat(3, 1fr);
@@ -184,7 +202,6 @@
     .Archievement_container {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         width: 100%;
     }
 
@@ -207,6 +224,11 @@
         margin: 0 auto !important;
         gap: 0;
 
+    }
+    .Archievement_right>h1{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
     }
 
 }
