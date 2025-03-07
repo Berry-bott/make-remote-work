@@ -20,6 +20,7 @@ function togle() {
     svg.classList.replace("fa-times", "fa-bars");
   }
   link.classList.toggle("effect");
+  console.log(svg);
 }
 
 ancho.forEach((ancho) => {
@@ -157,3 +158,87 @@ faq.forEach((faq) => {
 //   });
 // }
 
+// document.getElementById("searchBox").addEventListener("keyup", function () {
+//   let filter = this.value.toLowerCase();
+//   let content = document.querySelectorAll("h1, h2, h3, h4,h5,p");
+//   let found = false;
+
+//   content.forEach((element) => {
+//       let text = element.tagName === "IMG" ? element.alt.toLowerCase() : element.tagName.toLowerCase();
+      
+//       if (text.includes(filter)) {
+//           element.style.display = ""; // Show matching content
+//           found = true;
+//       } else {
+//           element.style.display = "none"; // Hide non-matching content
+//       }
+//   });
+
+//   // Show "No results found" message if nothing matches
+//   document.getElementById("noResults").style.display = found ? "none" : "block";
+// });
+
+// document.getElementById("searchBox").addEventListener("keyup", function () {
+//   let filter = this.value;
+//   let context = document.querySelector("body"); // Specify the context as needed
+//   let instance = new Mark(context);
+//   instance.unmark({
+//     done: function () {
+//       if (filter) {
+//         instance.mark(filter, {
+//           separateWordSearch: false,
+//           done: function (count) {
+//             document.getElementById("noResults").style.display = count ? "none" : "block";
+//           }
+//         });
+//       } else {
+//         document.getElementById("noResults").style.display = "none";
+//       }
+//     }
+//   });
+// });
+
+
+document.getElementById("searchBox").addEventListener("keyup", function () {
+  let filter = this.value.trim().toLowerCase();
+  let sections = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p"); // Search within headings & paragraphs
+  let instance = new Mark(document.body);
+  
+  instance.unmark({
+    done: function () {
+      if (filter) {
+        let found = false;
+        let firstMatch = null;
+
+        sections.forEach((element) => {
+          let text = element.textContent.toLowerCase();
+          if (text.includes(filter)) {
+            found = true;
+            element.classList.add("highlighted-topic"); // Add highlight class
+
+            if (!firstMatch) {
+              firstMatch = element; // Store first match for scrolling
+            }
+          } else {
+            element.classList.remove("highlighted-topic"); // Remove if not matched
+          }
+        });
+
+        document.getElementById("noResults").style.display = found ? "none" : "block";
+
+        // Scroll to the first match if found
+        if (firstMatch) {
+          firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } else {
+        document.getElementById("noResults").style.display = "none";
+      }
+    }
+  });
+});
+
+
+
+// document.getElementById('searchBox').addEventListener('keyup',function(){
+
+// })
