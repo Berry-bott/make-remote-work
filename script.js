@@ -187,7 +187,7 @@ let  welcomeText = document.getElementById('welcomeText')
           setTimeout(() => {
             welcomeText.innerHTML = ""; // Remove text after fade-out
           }, 5000); // Wait for fade-out to complete
-      }, 1000); // Display for 5 seconds
+      }, 10000); // Display for 5 seconds
   }
   else{
     setTimeout(() => {

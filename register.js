@@ -40,7 +40,7 @@ const errorMessages = {
 
 // 🛠️ Attach validation to form submission
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     let isValid = true;
 
     // Fields validation
