@@ -124,7 +124,7 @@ body.dark-mode {
   p,
   h1,
   a,
-  .btn {
+  .btn,.greating {
     color: white !important;
   }
 

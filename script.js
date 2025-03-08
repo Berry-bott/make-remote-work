@@ -153,12 +153,44 @@ document.querySelectorAll("#searchBtn").forEach(searchBtn => {
 })
 
 // 🔹 Display User Name on Home Page
-window.onload = function () {
-  const userNameDisplay = document.getElementById("welcomeText");
-  const fullName = sessionStorage.getItem("fullName");
-  if (userNameDisplay && fullName) {
-      userNameDisplay.innerText = `Welcome, ${fullName}!`;
-  }
-  }
+// window.onload = function () {
+//   const userNameDisplay = document.getElementById("welcomeText");
+//   const fullName = sessionStorage.getItem("fullName");
+//   if (userNameDisplay && fullName) {
+//       userNameDisplay.innerText = `Welcome, ${fullName}!`;
+//   }
+//   }
 
 document.getElementById("logoutButton").addEventListener("click", logOut )
+
+let  welcomeText = document.getElementById('welcomeText')
+  function welcome (){
+    let fullName =  sessionStorage.getItem('fullName')
+    let greeting = "";
+    let date = new Date().getHours();
+
+    if (date < 12) {
+        greeting = `Good Morning! `;
+    } else if (date < 18) {
+        greeting = `Good Afernoon! `;
+    } else {
+        greeting = `Good Evening! `;
+    }
+    if (fullName) {
+      welcomeText.innerHTML = ` <span class="greating">${greeting} ${fullName}.</span>`;
+      welcomeText.style.opacity = "1"; // Ensure it's visible
+  
+      setTimeout(() => {
+        welcomeText.style.transition = "opacity 1s ease-out";
+        welcomeText.style.opacity = "0"; // Fade out
+  
+          setTimeout(() => {
+            welcomeText.innerHTML = ""; // Remove text after fade-out
+          }, 500); // Wait for fade-out to complete
+      }, 10000); // Display for 5 seconds
+  }
+  
+  }
+  window.onload = welcome();
+
+  
