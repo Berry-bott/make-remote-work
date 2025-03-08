@@ -20,11 +20,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: var(---color2);
 }
 
 .container .form-wrapper {
+  margin: 2rem;
   padding: 2rem;
   width: 600px;
   height: auto;
