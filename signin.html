@@ -19,7 +19,6 @@
               <img src="./icons/logo.svg" alt="">
             </div>
             <hr> <br>
-        
             <div class="field">
               <div class="break">Choose Username*</div>
               <input type="text" name="email" id="username" />
@@ -30,14 +29,12 @@
               <input type="text" name="email" id="email" />
               <span id="error2"></span>
             </div>
-           
             <div class="field">
               <div class="break">password *</div>
               <div  id="border4" class="border4">
                 <input type="password" name="password" id="password">
                 <span class="toggle-password">
-                  <i class="fa fa-eye "></i>
-                </span>
+                  <i class="fa fa-eye "></i></span>
               </div>
               <span id="error3"></span>
             </div>
@@ -51,14 +48,18 @@
               </div>
               <input type="submit" name="" id="submit" />
             </div>
-            <!-- <textarea name="" id=""
-             cols="70" rows="10" maxlength="100"></textarea> -->
           </form>
         </div>
       </div>
-
-
-      
+      <div class="popup">
+        <!-- Popup Overlay -->
+        <div class="modal-overlay" ></div>
+        <!-- Popup Modal -->
+        <div class="modal" id="popup">
+            <p id="showModal"></p>
+            <button class="close-btn" >OK</button>
+        </div>
+      </div>
       <script src="./signin.js" type="module" ></script>
 </body>
 </html>

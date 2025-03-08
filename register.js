@@ -1,4 +1,4 @@
-
+// import {  openPopup} from "./signin";
 // 🛠️ Firebase setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";

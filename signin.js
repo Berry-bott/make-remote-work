@@ -1,9 +1,9 @@
 
 // Import Firebase SDKs
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import {  getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
-import  togglePassword  from "./register.js";
+import togglePassword from "./register.js";
 
 
 
@@ -80,36 +80,67 @@ form.addEventListener('submit', async (e) => {
 
         let useNname = sessionStorage.getItem('username');
         console.log(useNname);
-        
+
         let fullName = sessionStorage.getItem('fullName');
         console.log(fullName);
-        
-        if (fullName && useNname) {
+
+        if (fullName === useNname) {
 
 
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
             // Ensure the user has verified their email before allowing login
+            // document.getElementById('submit').addEventListener('click', () => {
+            //     alert('hi')
+            // })
             if (user.emailVerified) {
-                alert('Sign-in successful!');
-                window.location.href = "home.html"; // Redirect to home page
+                openPopup(   `Login Successful!  
+                            Redirecting to home...`)
+              
             } else {
-                alert('Please verify your email before logging in.');
+                openPopup(`Please verify your email before logging in.`)
+                // closePopup("Email Verification Required", "Please verify your email before logging in.");
             }
-        }else{
-            errorMessages.username .innerHTML = `Username mismatch`
+        } else {
+            errorMessages.username.innerHTML = `Username mismatch`;
+            errorMessages.username.style.color = "red";
         }
     }
     catch (error) {
         alert('Invalid Logins: ' + error.message);
         console.error(error.code, error.message);
     }
-
+    togglePassword();
 });
 
-togglePassword();
+document.querySelector('.modal-overlay').addEventListener('click', closePopup)
+document.querySelector('.close-btn').addEventListener('click', closePopup)
+function closePopup() {
+    document.querySelector('.modal-overlay').style.display = 'none';
+    document.getElementById('popup').style.display = 'none';
+    window.location.href = "home.html";
 
+}
+function openPopup(massage) {
+    //   setTimeout(() => {
+    //             }, 2000); 
+    document.querySelector('.modal-overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('showModal').innerHTML = massage
+  
+}
+
+// let closeBtn = document.querySelector('.modal-overlay')
+// let closeBtn2 = document.querySelector('.close-btn')
+
+// closeBtn.addEventListener('click', closePopup)
+// closeBtn2.addEventListener('click', closePopup)
+
+// function closePopup() {
+//     document.querySelector('.modal-overlay').style.display = 'none';
+//     document.getElementById('popup').style.display = 'none';
+// }
 
 // let welcomeText = document.getElementById('welcomeText')
 // onAuthStateChanged(auth, (user) => {
