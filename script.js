@@ -186,7 +186,7 @@ let  welcomeText = document.getElementById('welcomeText')
   
           setTimeout(() => {
             welcomeText.innerHTML = ""; // Remove text after fade-out
-          }, 500); // Wait for fade-out to complete
+          }, 5000); // Wait for fade-out to complete
       }, 1000); // Display for 5 seconds
   }
   else{
@@ -199,9 +199,7 @@ let  welcomeText = document.getElementById('welcomeText')
         }, 5000); // Wait for fade-out to complete
     }, 10000); 
     welcomeText.innerHTML = ` <span class='greating'>Welcome Onboard! </span>`;
-    
   }
-  
   }
   window.onload = welcome();
 
