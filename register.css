@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
   height: 100vh;
   background-color: var(---color2);
 }
@@ -170,6 +171,7 @@ input[type="submit"] {
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       border-radius: 0;
       height: auto !important;
+      margin: 1rem 0;
     }
 
   }
