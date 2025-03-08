@@ -11,6 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+
     <link rel="stylesheet" href="./index.css">
     <!-- <link rel="stylesheet" href="./styles.css"> -->
     <script src="./all.js"></script>
@@ -19,10 +21,15 @@
 
 <body>
 
-   
+
     <header>
         <nav>
             <div class="wrapper nav-container" data-aos="fade-down">
+
+                <div class="hallow" id="hallow">
+                    <input type="text" name="" id="searchBox">
+                    <div id="noResults" style="display: none;" class="noResults">No results found</div>
+                </div>
 
                 <div class="logo">
                     <a href="#home">
@@ -39,7 +46,7 @@
                     <div id="toggleBtn">
                         <i class="fa fa-sun"></i>
                     </div>
-                    <span class="search1" id="searchBtn1"> <i class="fa fa-search"></i></span>
+                    <span class="search1" id="searchBtn"> <i class="fa fa-search"></i></span>
                     <span class="bars">
                         <i class="fa fa-bars"></i>
                     </span>
@@ -60,7 +67,7 @@
                             <span class="drop-btn">
                                 <i class="fas fa-chevron-down"></i>
                             </span>
-                       
+
                         </div>
 
                     </nav>
@@ -68,7 +75,7 @@
                     <div class="right-nav">
                         <a href="./signin.html">login</a>
                         <!-- <a href="">Logout</a> -->
-                        <a href="./register.html">register</a>z
+                        <a href="./register.html">register</a>
                         </a>
                     </div>
 
@@ -117,83 +124,83 @@
         </div>
 
     </section>
-   
-    
+
+
     <section class="about" id="about">
 
-    <div class="about-max-index  wrapper ">
+        <div class="about-max-index  wrapper ">
 
-        <div class="about-content" data-aos="fade-up" data-aos-anchor-placement="top-center">
-            <div class="about-title">
-                <h2>about us</h2>
-                <p> Remote work entry</p>
-                <h4> We provide well skilled website</h4>
+            <div class="about-content" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                <div class="about-title">
+                    <h2>about us</h2>
+                    <p> Remote work entry</p>
+                    <h4> We provide well skilled website</h4>
+                </div>
+                <div class="about-text">
+
+                    <p>
+                        In today's digital era, a website is more than just an online presence—it’s the foundation of
+                        your brand, a tool for customer engagement, and a gateway to business growth. We specialize in
+                        designing and developing well-skilled websites that are visually
+                        stunning, highly functional, and optimized for success..
+                    </p>
+                    <br>
+
+                    <p class="learn-more ">Why Choose Us for Your Website Development? <br><br>
+                        1. Expert Web Development with Precision
+                        Our team of experienced developers brings technical expertise, creativity, and
+                        industry knowledge to craft websites that are custom-built to meet your specific needs.
+                        Whether you need an eCommerce platform, a corporate website, or a personal portfolio,
+                        we ensure seamless functionality and a smooth user experience. <br>
+
+                        2. Modern & Responsive Designs
+                        A website should not only look great but also function flawlessly across all devices. Our
+                        websites are:
+                        ✅ Fully responsive – Perfectly adaptable to mobile, tablet, and desktop screens.
+                        ✅ Visually appealing – Modern designs that align with your brand identity.
+                        ✅ User-friendly – Easy navigation and intuitive interfaces for better engagement. <br>
+
+                        3. SEO-Optimized for Maximum Visibility
+                        A great website is useless if it doesn’t rank well on search engines. That’s why we implement:
+                        📌 On-page SEO strategies – Optimized content, meta tags, and keyword integration.
+                        📌 Fast-loading pages – Optimized images and clean code for better performance.
+                        📌 SEO-friendly URLs & structure – To enhance Google indexing and ranking. <br>
+
+                        4. Secure & Scalable Solutions
+                        Security is at the core of our web development. We build websites with:
+                        🔒 SSL encryption – Ensuring data protection and customer trust.
+                        🔒 Secure payment gateways – For safe online transactions.
+                        🔒 Regular updates & maintenance – Keeping your website secure and up-to-date. <br>
+
+                        5. Tailor-Made Features for Your Business
+                        We don’t use generic templates. Every website we create is customized with features that suit
+                        your business needs, including:
+                        ✅ eCommerce functionality – Shopping carts, payment processing, and inventory management.
+                        ✅ Booking systems – For appointments, reservations, and service scheduling.
+                        ✅ Custom dashboards – Manage your content, products, and analytics with ease. <br>
+
+                        6. Ongoing Support & Maintenance
+                        Our relationship doesn’t end after launching your website. We offer:
+                        📌 24/7 technical support – To resolve any issues quickly.
+                        📌 Website updates & backups – Keeping your site secure and functional.
+                        📌 Performance monitoring – Regular insights to ensure optimal performance.
+
+
+                    </p>
+                    <button class="btn js-btn ">Learn More</button>
+
+                </div>
+
             </div>
-            <div class="about-text">
-
-                <p>
-                    In today's digital era, a website is more than just an online presence—it’s the foundation of
-                    your brand, a tool for customer engagement, and a gateway to business growth. We specialize in
-                    designing and developing well-skilled websites that are visually
-                    stunning, highly functional, and optimized for success..
-                </p>
-                <br>
-
-                <p class="learn-more ">Why Choose Us for Your Website Development? <br><br>
-                    1. Expert Web Development with Precision
-                    Our team of experienced developers brings technical expertise, creativity, and
-                    industry knowledge to craft websites that are custom-built to meet your specific needs.
-                    Whether you need an eCommerce platform, a corporate website, or a personal portfolio,
-                    we ensure seamless functionality and a smooth user experience. <br>
-
-                    2. Modern & Responsive Designs
-                    A website should not only look great but also function flawlessly across all devices. Our
-                    websites are:
-                    ✅ Fully responsive – Perfectly adaptable to mobile, tablet, and desktop screens.
-                    ✅ Visually appealing – Modern designs that align with your brand identity.
-                    ✅ User-friendly – Easy navigation and intuitive interfaces for better engagement. <br>
-
-                    3. SEO-Optimized for Maximum Visibility
-                    A great website is useless if it doesn’t rank well on search engines. That’s why we implement:
-                    📌 On-page SEO strategies – Optimized content, meta tags, and keyword integration.
-                    📌 Fast-loading pages – Optimized images and clean code for better performance.
-                    📌 SEO-friendly URLs & structure – To enhance Google indexing and ranking. <br>
-
-                    4. Secure & Scalable Solutions
-                    Security is at the core of our web development. We build websites with:
-                    🔒 SSL encryption – Ensuring data protection and customer trust.
-                    🔒 Secure payment gateways – For safe online transactions.
-                    🔒 Regular updates & maintenance – Keeping your website secure and up-to-date. <br>
-
-                    5. Tailor-Made Features for Your Business
-                    We don’t use generic templates. Every website we create is customized with features that suit
-                    your business needs, including:
-                    ✅ eCommerce functionality – Shopping carts, payment processing, and inventory management.
-                    ✅ Booking systems – For appointments, reservations, and service scheduling.
-                    ✅ Custom dashboards – Manage your content, products, and analytics with ease. <br>
-
-                    6. Ongoing Support & Maintenance
-                    Our relationship doesn’t end after launching your website. We offer:
-                    📌 24/7 technical support – To resolve any issues quickly.
-                    📌 Website updates & backups – Keeping your site secure and functional.
-                    📌 Performance monitoring – Regular insights to ensure optimal performance.
-
-
-                </p>
-                <button class="btn js-btn ">Learn More</button>
-
-            </div>
-
         </div>
-        </div>
-        </section>
+    </section>
     <hr>
-        <main id="login">
-            <div class="expore wrapper ">
-    
-                <p>Login to expore More! </p>
-            </div>
-        </main>
+    <main id="login">
+        <div class="expore wrapper ">
+
+            <p>Login to expore More! </p>
+        </div>
+    </main>
 
     <footer class="foter">
         <div class="foter_container wrapper">
@@ -223,6 +230,7 @@
         </div>
 
     </footer>
-    <SCript src="./script.js"></SCript>
+    <Script src="./script.js" type="module"></Script>
 </body>
+
 </html>

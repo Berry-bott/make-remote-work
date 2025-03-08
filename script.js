@@ -1,5 +1,4 @@
 import logOut  from "./signout.js"; // Import logout function
-document.getElementById("logoutButton").addEventListener("click", logOut )
 
 const bar = document.querySelector(".bars");
 const link = document.querySelector(".carrier");
@@ -160,3 +159,5 @@ window.onload = function () {
       userNameDisplay.innerText = `Welcome, ${fullName}!`;
   }
   }
+
+document.getElementById("logoutButton").addEventListener("click", logOut )
