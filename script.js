@@ -1,3 +1,6 @@
+import logOut  from "./signout.js"; // Import logout function
+document.getElementById("logoutButton").addEventListener("click", logOut )
+
 const bar = document.querySelector(".bars");
 const link = document.querySelector(".carrier");
 const sun = document.querySelector(".light");
@@ -29,10 +32,11 @@ ancho.forEach((ancho) => {
 
 // FOR ----SEARCH BARS---
 
-search.addEventListener("click", function () {
-  search.style.color = "red";
-  form_.classList.toggle("effect-1");
-});
+// search.addEventListener("click", function () {
+//   // alert('hi')
+//   search.style.color = "red";  
+//   form_.classList.toggle("effect-1");
+// });
 
 // ------FOR SCROLL BARS----
 
@@ -62,183 +66,97 @@ faq.forEach((faq) => {
 });
 
 
- const container = document.addEventListener("click", (event) => {
-     let target = event.target;
-     if (target.matches(".js-btn")) {
-       target.previousElementSibling.classList.toggle("hide");
-      //  console.dir(target);
-     }
-   });
-
-
-// btns.forEach((btn, offset) => {
-//   btn.addEventListener("click", () => {
-//     console.dir(btn);
-//     learnMore[offset].classList.toggle("hide");
-//     // btn.previousElementSibling.classList.toggle("hide");
-//   });
-// });
-
-
-
-// btns.forEach((btn)=>{
-//   btn.addEventListener('click', () =>{
-// console.dir(btn)
-// btn.previousElementSibling.classList.toggle('hide')
-//   })
-// })
-
-
-
-// let learnMore = document.querySelectorAll(".learn-more");
-
-
-// const container = document.querySelector(".courses-container");
-
-// container.addEventListener("click", (event) => {
-//   let target = event.target;
-//   if (target.matches(".js-btn")) {
-//    target.previousElementSibling.classList.toggle('hide');
-//   }
-//   console.dir(target)
-// });
-
-// document
-//   .querySelector(".courses")
-//   .addEventListener("click", (event) => {
-//     const faq = event.target.closest(".js-btn");
-//     if (faq) {
-//       faq.previousElementSibling.classList.toggle("hide");
-//       console.log(faq)
-//     }
-//   });
-
-// document.querySelector(".faq_container")?.addEventListener("click", (event) => {
-//   const faq = event.target.closest(".faq");
-//   if (faq) {
-//     faq.classList.toggle("open");
-//   console.log(faq)
-//   }
-// });
-
-// let faqs = document.querySelector(".faq_container");
-// faqs.addEventListener('click',(event)=>{
-// let target = event.target.closest;
-// if (target.matches(".faq")) {
-//   faq.classList.toggle("open");
-//   console.log("hello");
-// }
-//   console.dir(target)
-// })
-
-// document.querySelector(".faq_container").addEventListener("click", (event) => {
-//   if (event.target.matches(".faq")) {
-//     event.target.classList.toggle("open");
-//   }
-// });
-
-// let learnMore = document.querySelector(".learn-more");
-
-// for (i = 0; i < learnMore.length; i++) {
-//   let btn1 = learnMore[i];
-//   btns.addEventListener("click", function () {
-//     btn1.classList.toggle("hide");
-//   });
-//   console.log(btn1);
-//   console.log(btns);
-// }
-
-// let moreText = document.querySelector(".more-text");
-// const faq = document.querySelector(".faq");
-
-// for (i = 0; i < faq.length; i++) {
-//   let text = faq[i];
-//   text.addEventListener("click", () => {
-//     text.classList.toggle("open");
-//   });
-// }
-
-// document.getElementById("searchBox").addEventListener("keyup", function () {
-//   let filter = this.value.toLowerCase();
-//   let content = document.querySelectorAll("h1, h2, h3, h4,h5,p");
-//   let found = false;
-
-//   content.forEach((element) => {
-//       let text = element.tagName === "IMG" ? element.alt.toLowerCase() : element.tagName.toLowerCase();
-      
-//       if (text.includes(filter)) {
-//           element.style.display = ""; // Show matching content
-//           found = true;
-//       } else {
-//           element.style.display = "none"; // Hide non-matching content
-//       }
-//   });
-
-//   // Show "No results found" message if nothing matches
-//   document.getElementById("noResults").style.display = found ? "none" : "block";
-// });
-
-// document.getElementById("searchBox").addEventListener("keyup", function () {
-//   let filter = this.value;
-//   let context = document.querySelector("body"); // Specify the context as needed
-//   let instance = new Mark(context);
-//   instance.unmark({
-//     done: function () {
-//       if (filter) {
-//         instance.mark(filter, {
-//           separateWordSearch: false,
-//           done: function (count) {
-//             document.getElementById("noResults").style.display = count ? "none" : "block";
-//           }
-//         });
-//       } else {
-//         document.getElementById("noResults").style.display = "none";
-//       }
-//     }
-//   });
-// });
-
-
-document.getElementById("searchBox").addEventListener("keyup", function () {
-  let filter = this.value.trim().toLowerCase();
-  let sections = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p"); // Search within headings & paragraphs
-  let instance = new Mark(document.body);
-  
-  instance.unmark({
-    done: function () {
-      if (filter) {
-        let found = false;
-        let firstMatch = null;
-
-        sections.forEach((element) => {
-          let text = element.textContent.toLowerCase();
-          if (text.includes(filter)) {
-            found = true;
-            element.classList.add("highlighted-topic"); // Add highlight class
-
-            if (!firstMatch) {
-              firstMatch = element; // Store first match for scrolling
-            }
-          } else {
-            element.classList.remove("highlighted-topic"); // Remove if not matched
-          }
-        });
-
-        document.getElementById("noResults").style.display = found ? "none" : "block";
-
-        // Scroll to the first match if found
-        if (firstMatch) {
-          firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      } else {
-        document.getElementById("noResults").style.display = "none";
-      }
-    }
-  });
+const container = document.addEventListener("click", (event) => {
+  let target = event.target;
+  if (target.matches(".js-btn")) {
+    target.previousElementSibling.classList.toggle("hide");
+    //  console.dir(target);
+  }
 });
 
 
+// backgroundColor
 
-// document.getElementById('searchBox').addEventListener('keyup',function(){
 
-// })
+function toggleBackground() {
+
+  document.getElementById("toggleBtn").addEventListener("click", function () {
+    this.style.color = this.style.color === 'black' ? 'white' : 'black';
+
+    document.body.classList.toggle("dark-mode");
+  });
+}
+toggleBackground()
+
+
+// This is for searchBar
+
+document.querySelectorAll("#searchBox").forEach(searchBox => {
+
+
+  searchBox.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission if inside a form
+      document.getElementById("searchBtn").click(); // Trigger button click
+    }
+  });
+})
+
+document.querySelectorAll("#searchBtn").forEach(searchBtn => {
+  searchBtn.addEventListener("click", function () {
+    // alert('hi');
+    hallow.classList.toggle("unhide");
+
+
+    let searchBox = document.querySelectorAll("#searchBox");
+    searchBox.forEach(searchBox => {
+
+      let filter = searchBox.value.trim().toLowerCase();
+
+      let sections = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p"); // Search in headings & paragraphs
+      let instance = new Mark(document.body);
+
+      instance.unmark({
+        done: function () {
+          if (filter) {
+            let found = false;
+            let firstMatch = null;
+
+            sections.forEach((element) => {
+              let text = element.textContent.toLowerCase();
+              if (text.includes(filter)) {
+                found = true;
+                element.classList.add("highlighted-topic"); // Highlight match
+                document.getElementById("searchBox").value = '';
+
+                if (!firstMatch) {
+                  firstMatch = element; // Store first match for scrolling
+                }
+              } else {
+                element.classList.remove("highlighted-topic"); // Remove highlight if no match
+              }
+            });
+
+            document.getElementById("noResults").style.display = found ? "none" : "block";
+
+            // Scroll to the first match if found
+            if (firstMatch) {
+              firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          } else {
+            document.getElementById("noResults").style.display = "none";
+          }
+        }
+      });
+    });
+  })
+})
+
+// 🔹 Display User Name on Home Page
+window.onload = function () {
+  const userNameDisplay = document.getElementById("welcomeText");
+  const fullName = sessionStorage.getItem("fullName");
+  if (userNameDisplay && fullName) {
+      userNameDisplay.innerText = `Welcome, ${fullName}!`;
+  }
+  }

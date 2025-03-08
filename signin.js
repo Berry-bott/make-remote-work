@@ -1,6 +1,71 @@
+
 // Import Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+
+let emailField = document.getElementById('email');
+let passwordField = document.getElementById('password');
+let checkbox = document.getElementById('checkbox');
+let form = document.getElementById("form");
+
+const errorMessages = {
+    email: document.getElementById('error1'),
+    password: document.getElementById('error2'),
+    checkbox: document.getElementById('error3')
+};
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    let fields = [
+        { input: emailField, error: errorMessages.email, message: "Email is required" },
+        { input: passwordField, error: errorMessages.password, message: "Password is required" }
+    ];
+
+    // Check if fields are empty
+    fields.forEach(field => {
+        if (field.input.value.trim() === "") {
+            field.error.innerText = field.message;
+            field.error.style.color = "red";
+            isValid = false;
+        } else {
+            field.error.innerText = "";
+        }
+    });
+
+    // Checkbox validation (must be checked)
+    if (!checkbox.checked) {
+        errorMessages.checkbox.innerText = "You must agree to the terms";
+        errorMessages.checkbox.style.color = "red";
+        isValid = false;
+    } else {
+        errorMessages.checkbox.innerText = "";
+    }
+
+    if (!isValid) return;
+
+    // Firebase Authentication Logic
+    try {
+        const email = emailField.value;  // Fetch email input
+        const password = passwordField.value;  // Fetch password input
+
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Ensure the user has verified their email before allowing login
+        if (user.emailVerified) {
+            alert('Sign-in successful!');
+            window.location.href = "home.html"; // Redirect to home page
+        } else {
+            alert('Please verify your email before logging in.');
+        }
+    } catch (error) {
+        alert('Invalid Logins: ' + error.message);
+        console.error(error.code, error.message);
+    }
+});
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -14,33 +79,26 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // Ensure auth is initialized
+const auth = getAuth(app);
 
-// Register event listener for login button
-document.getElementById('submit').addEventListener('click', async (event) => {
-    event.preventDefault(); // Prevent page reload
-    
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-    try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        // Ensure the user has verified their email before allowing login
-        if (user.emailVerified) {
-            alert('Sign-in successful!');
-            window.location.href = "index.html"; // Redirect to home page
-        } else {
-            alert('Please verify your email before logging in.');
-        }
-
-    } catch (error) {
-        alert(error.message);
-        // alert(error.code);
-        console.error(error.code, error.message);
-    }
-});
+// let welcomeText = document.getElementById('welcomeText')
+// onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//     //   window.location.href = "signin.html"; // Redirect if not logged in
+//     welcomeText.innerText = `Hi, ${user.email}!`;
+//     }
+//   });
 
 
+// import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
+// Get authentication instance
+// const auth = getAuth();
+
+// Check if user is logged in
+// onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//         let welcomeText = document.getElementById('welcome_text');
+//         welcomeText.innerText = `Hi, ${user.email}!`;
+//     }
+// });

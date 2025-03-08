@@ -23,21 +23,51 @@ const auth = getAuth(app); // Ensure auth is initialized
 // Import Firebase auth module if needed
 
 
-document.getElementById("logoutButton").addEventListener("click", function () {
+  export default function logOut(){
+  
     signOut(auth)
-      .then(() => {
-        console.log("User signed out successfully!");
-        alert("Logged out successfully!");
-        window.location.href = "signin.html"; // Redirect to login page
-      })
-      .catch((error) => {
-        console.error("Error logging out:", error);
-      });
-  });
+    .then(() => {
+      console.log("User signed out successfully!");
+      alert("Logged out successfully!");
+      window.location.href = "signin.html"; // Redirect to login page
+    })
+    .catch((error) => {
+      console.error("Error logging out:", error);
+    });
+  }
+
+
+
+
+
+
+
+
+
   
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      window.location.href = "signin.html"; // Redirect if not logged in
-    }
-  });
+  // });
   
+  // onAuthStateChanged(auth, (user) => {
+  //   if (!user) {
+  //     window.location.href = "signin.html"; // Redirect if not logged in
+  //   }
+  // });
+  
+  // export async function logout() {
+    // const logoutBtn = document.getElementById("logoutButton");
+    // logoutBtn.innerText = "Logging out..."; // Change button text
+    // logoutBtn.disabled = true; // Prevent multiple clicks
+
+    // try {
+    //     await signOut(auth);
+    //     console.log("User signed out successfully!");
+    //     alert("✅ Logged out successfully!");
+    //     window.location.href = "signin.html"; // Redirect to login page
+    // } catch (error) {
+    //     console.error("Logout Error:", error);
+    //     alert("❌ Error logging out. Please try again later.");
+    // } finally {
+    //     logoutBtn.innerText = "Logout"; // Restore button text
+    //     logoutBtn.disabled = false; // Re-enable button
+    // }
+// }

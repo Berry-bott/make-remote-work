@@ -29,6 +29,7 @@ html {
 body {
   user-select: none;
   color: var(---color2);
+  position: relative;
 
 }
 
@@ -39,6 +40,10 @@ section {
 .wrapper {
   width: 80% !important;
   margin: 0 auto;
+}
+
+header {
+  position: relative;
 }
 
 header nav {
@@ -110,6 +115,45 @@ header nav .nav-container {
   display: none;
 }
 
+body.dark-mode {
+  background-color: #401f3f;
+  color: white !important;
+  border: white !important;
+
+  h2,
+  p,
+  h1,
+  a,
+  .btn {
+    color: white !important;
+  }
+
+  .text-wrapper {
+    border: none !important;
+  }
+}
+
+.hallow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 4rem;
+  box-shadow: 0px 22px 4px 39px rgba(0, 22, 0, 0.3);
+  background: rgba(0, 22, 0, 0.5);
+  display: none;
+  width: 100%;
+  
+  input {
+    width: 100%;
+    border-radius: 0;
+    filter: none;
+    padding: 1.5rem;
+    font-size: 20px;
+  }
+}
+
+
 .links {
   display: flex;
   position: relative;
@@ -149,8 +193,6 @@ header nav .nav-container {
   z-index: 1;
   width: 83%;
 }
-
-
 
 .right-nav {
   display: flex;
@@ -203,6 +245,21 @@ header nav .nav-container {
 
 .form {
   display: flex;
+  position: relative;
+
+}
+
+.noResults {
+  position: absolute;
+  padding: 5px;
+  right: 2rem;
+  top: 2rem;
+  width: 270px;
+  color: tomato;
+  background-color: beige;
+  z-index: 99;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
 }
 
 input {
@@ -212,6 +269,7 @@ input {
   padding: 0 15px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  outline: none;
 }
 
 .search {
@@ -220,6 +278,15 @@ input {
   border: 1px solid;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.search__btn {
+  display: flex;
+  gap: 2rem;
+}
+
+.search__btn #toggleBtn {
+  font-size: 30px;
 }
 
 .dropdown {
@@ -366,13 +433,13 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: fit-content;
-  margin-top: 6rem;
+  margin-top: 7rem;
 }
 
 .btn {
   background-color: var(---primary_color);
   padding: 10px;
-  margin: 3rem 0;
+  margin: 1rem 0;
   display: inline-block;
   color: var(---color2);
   position: relative;
@@ -512,7 +579,7 @@ span {
   background-color: var(---secondary_color);
   animation-name: slidein;
   animation-duration: 1s;
-  height: fit-content;
+  height: auto;
 }
 
 .course:hover {
@@ -782,14 +849,37 @@ span {
   border-top: 1px solid var(---color2);
 }
 
+.search__btn .search1 {
+  display: none;
+}
+
+.form-mobile {
+  display: none;
+}
+
+.expore {
+  height: auto;
+  width: 400px !important;
+  border-radius: 12px;
+  font-size: 30px;
+  padding: 2rem;
+  margin: 3rem auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  p {
+    color: var(---color2);
+
+  }
+}
 
 
-/* ###############---meidia query---########## */
 
-@media screen and (max-width: 1380px) {
+/* ###############---Meidia Query---########## */
+
+@media screen and (max-width: 1210px) {
 
   .wrapper {
-    /* width: 90% !important; */
+    width: 91% !important;
   }
 
   .carrier {
@@ -797,9 +887,29 @@ span {
   }
 }
 
-@media screen and (max-width: 1090px) {
+@media screen and (max-width: 1099px) {
+
+  /* *{
+    outline: 1px solid;
+  } */
   .wrapper {
-    width: 90%;
+    width: 90% !important;
+  }
+
+  .search__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 30px;
+  }
+
+  .search__btn .search1 {
+    display: block;
+  }
+
+  header {
+    position: relative;
   }
 
   .nav-container {
@@ -811,6 +921,7 @@ span {
     color: var(---color2);
     font-size: 30px;
     margin-right: 1rem;
+    position: relative;
   }
 
   .window-scroll {
@@ -821,7 +932,7 @@ span {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 2.8rem;
+    top: 3.5rem;
     left: -135%;
     right: 0;
     width: 90vw;
@@ -835,6 +946,10 @@ span {
 
   .effect {
     left: -43px;
+  }
+
+  .unhide {
+    display: block;
   }
 
   .links {
@@ -862,7 +977,28 @@ span {
   }
 
   .form {
-    margin-bottom: 3rem;
+    display: none;
+  }
+
+  .form-mobile {
+    display: block;
+    /* position: absolute; */
+    /* margin-bottom: 3rem; */
+    position: absolute !important;
+    top: 3rem;
+    right: 0;
+
+    .input {
+      /* width: 100%; */
+      z-index: 99;
+    }
+  }
+
+  .noResults {
+    width: 170px;
+    top: -2.3rem;
+    left: 1rem;
+    background-color: transparent;
   }
 
   .search {
@@ -876,7 +1012,7 @@ span {
 
   .window-scroll .dropdown-content a {
     background-color: transparent;
-    display: none;
+    /* display: none; */
     box-shadow: -4rem 6rem 10rem var(---primary_color);
   }
 
@@ -887,7 +1023,7 @@ span {
     margin: auto;
     display: block;
     background-color: var(---);
-    box-shadow: none;
+    /* box-shadow: none; */
   }
 
   .home_content {
@@ -910,7 +1046,7 @@ span {
   }
 
   .img-tag img {
-    width: 800px;
+    width: 100%;
     max-width: 100%;
   }
 
@@ -941,6 +1077,7 @@ span {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: none;
   }
 
   .about-content {
@@ -949,11 +1086,13 @@ span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
   }
 
   .about-text {
-    max-height: 320px;
+    height: auto;
+    overflow-y: none;
   }
 
   .about-text p {
@@ -962,13 +1101,27 @@ span {
     padding: 0 1rem;
   }
 
-  .card {
-    margin: 0 auto;
-    flex-wrap: wrap;
+
+  .about-card:hover {
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: 0.2s all;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .about-card::before {
+    display: none;
+  }
+
+  .about-card:hover::before {
+    display: none;
   }
 
   .about-card {
-    max-width: 250px;
+    width: auto;
+    height: auto;
+
   }
 
   .courses-container {
@@ -976,12 +1129,16 @@ span {
   }
 
   .faqs {
-    margin: 0 5rem;
+    /* margin: 0 5rem; */
   }
 
   .faq_container {
     grid-template-columns: 1fr;
   }
+
+  /* .course-infro{
+    height: auto;
+  } */
 
   .testimonial {
     animation: none;
@@ -1005,6 +1162,10 @@ span {
     width: 90%;
   }
 
+  .search__btn {
+    gap: 1rem;
+  }
+
   .right-nav {
     margin: 0 auto;
   }
@@ -1012,10 +1173,12 @@ span {
   .form {
     float: left;
     margin: 0 2rem;
+
   }
 
   input {
     width: 100%;
+
   }
 
   .search {
@@ -1046,11 +1209,10 @@ span {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
   }
 
   .card .about-card {
-    width: fit-content;
+    min-width: 100%;
   }
 
   .courses-container {
