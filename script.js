@@ -88,6 +88,7 @@ function toggleBackground() {
 toggleBackground()
 
 
+
 // This is for searchBar
 
 document.querySelectorAll("#searchBox").forEach(searchBox => {
