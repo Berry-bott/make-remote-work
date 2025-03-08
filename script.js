@@ -190,7 +190,7 @@ let  welcomeText = document.getElementById('welcomeText')
   //     }, 10000); // Display for 5 seconds
   // }
   
-  // }
+  }
   window.onload = welcome();
 
   
