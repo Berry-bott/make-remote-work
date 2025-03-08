@@ -176,19 +176,31 @@ let  welcomeText = document.getElementById('welcomeText')
     } else {
         greeting = `Good Evening! `;
     }
-    welcomeText.innerHTML = ` <span class="greating">${greeting} ${fullName}.</span>`;
-  //   if (fullName) {
-  //     welcomeText.style.opacity = "1"; // Ensure it's visible
+    if (fullName) {
+      welcomeText.innerHTML = ` <span class="greating">${greeting} ${fullName}.</span>`;
+      welcomeText.style.opacity = "1"; // Ensure it's visible
   
-  //     setTimeout(() => {
-  //       welcomeText.style.transition = "opacity 1s ease-out";
-  //       welcomeText.style.opacity = "0"; // Fade out
+      setTimeout(() => {
+        welcomeText.style.transition = "opacity 1s ease-out";
+        welcomeText.style.opacity = "0"; // Fade out
   
-  //         setTimeout(() => {
-  //           welcomeText.innerHTML = ""; // Remove text after fade-out
-  //         }, 500); // Wait for fade-out to complete
-  //     }, 10000); // Display for 5 seconds
-  // }
+          setTimeout(() => {
+            welcomeText.innerHTML = ""; // Remove text after fade-out
+          }, 500); // Wait for fade-out to complete
+      }, 1000); // Display for 5 seconds
+  }
+  else{
+    setTimeout(() => {
+      welcomeText.style.transition = "opacity 1s ease-out";
+      welcomeText.style.opacity = "0"; // Fade out
+
+        setTimeout(() => {
+          welcomeText.innerHTML = ""; // Remove text after fade-out
+        }, 5000); // Wait for fade-out to complete
+    }, 10000); 
+    welcomeText.innerHTML = ` <span class='greating'>Welcome Onboard! </span>`;
+    
+  }
   
   }
   window.onload = welcome();
