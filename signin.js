@@ -1,7 +1,25 @@
 
 // Import Firebase SDKs
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import {  getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+import  togglePassword  from "./register.js";
+
+
+
+// Your Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCEgR134K-jlERV8TkR7J9tS7QZ2A8MumU",
+    authDomain: "snap-project-deploy.firebaseapp.com",
+    projectId: "snap-project-deploy",
+    storageBucket: "snap-project-deploy.appspot.com",
+    messagingSenderId: "1072535964803",
+    appId: "1:1072535964803:web:399f87f7f09e3c9f421fb6"
+};
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+const auth = getAuth();
 
 
 let username = document.getElementById('username');
@@ -90,19 +108,8 @@ form.addEventListener('submit', async (e) => {
 
 });
 
-// Your Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyCEgR134K-jlERV8TkR7J9tS7QZ2A8MumU",
-    authDomain: "snap-project-deploy.firebaseapp.com",
-    projectId: "snap-project-deploy",
-    storageBucket: "snap-project-deploy.appspot.com",
-    messagingSenderId: "1072535964803",
-    appId: "1:1072535964803:web:399f87f7f09e3c9f421fb6"
-};
+togglePassword();
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 // let welcomeText = document.getElementById('welcomeText')
 // onAuthStateChanged(auth, (user) => {

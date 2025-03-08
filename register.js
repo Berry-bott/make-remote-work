@@ -1,4 +1,3 @@
-// import welcome from './script.js'
 
 // 🛠️ Firebase setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
@@ -128,11 +127,17 @@ function registerUser() {
         });
 }
 
-let togglePassword = document.querySelector(".toggle-password")
-togglePassword.addEventListener("click", function () {
-    let passwordInput = document.getElementById("password");
 
-    let svg = togglePassword.querySelector("svg");
+let togglePasswordElement = document.querySelector(".toggle-password");
+
+togglePasswordElement.addEventListener("click", function () {
+    togglePassword()
+});
+
+let passwordInput = document.getElementById("password");
+    export default function togglePassword(){
+
+    let svg = togglePasswordElement.querySelector("svg");
     if (passwordInput.type === "password" && svg.classList.contains("fa-eye")) {
         passwordInput.type = "text";
         svg.classList.replace("fa-eye", "fa-eye-slash"); // Change icon
@@ -140,7 +145,7 @@ togglePassword.addEventListener("click", function () {
         passwordInput.type = "password";
         svg.classList.replace("fa-eye-slash", "fa-eye"); // Change icon back
     }
-});
+}
 
 // Import Firebase SDKs
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
