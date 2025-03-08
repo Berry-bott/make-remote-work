@@ -22,6 +22,7 @@ const app = initializeApp(firebaseConfig);
 let form = document.getElementById("form");
 let fName = document.querySelector("#fName");
 let lName = document.querySelector("#lName");
+let username = document.querySelector("#username");
 let email = document.querySelector("#email");
 let password = document.querySelector("#password");
 let checkbox = document.querySelector("#checkbox");
@@ -29,8 +30,9 @@ let checkbox = document.querySelector("#checkbox");
 const errorMessages = {
     fName: document.getElementById("error1"),
     lName: document.getElementById("error2"),
-    email: document.getElementById("error3"),
-    password: document.getElementById("error4"),
+    username: document.getElementById("error3"),
+    email: document.getElementById("error4"),
+    password: document.getElementById("error5"),
     checkbox: document.getElementById("error5")
 };
 
@@ -40,13 +42,14 @@ const errorMessages = {
 
 // 🛠️ Attach validation to form submission
 form.addEventListener("submit", (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     let isValid = true;
 
     // Fields validation
     let fields = [
         { input: fName, error: errorMessages.fName, message: "First name is required" },
         { input: lName, error: errorMessages.lName, message: "Last name is required" },
+        { input: username, error: errorMessages.username, message: "Last name is required" },
         { input: email, error: errorMessages.email, message: "Email is required" },
         { input: password, error: errorMessages.password, message: "Password is required" }
     ];
@@ -74,6 +77,7 @@ form.addEventListener("submit", (e) => {
         errorMessages.password.innerText = "Password must contain at least one letter and one number";
         errorMessages.password.style.color = "red";
         isValid = false;
+
     }
 
     // 🛠️ Checkbox validation
@@ -98,7 +102,7 @@ function registerUser() {
     const userPassword = password.value;
 
 
-    const fullName = `${fName.value}`;
+    const fullName = `${username.value}`;
 
     // 🔹 Save full name in sessionStorage
     sessionStorage.setItem("fullName", fullName);
@@ -124,15 +128,27 @@ function registerUser() {
         });
 }
 
+let togglePassword = document.querySelector(".toggle-password")
+togglePassword.addEventListener("click", function () {
+    let passwordInput = document.getElementById("password");
 
+    let svg = togglePassword.querySelector("svg");
+    if (passwordInput.type === "password" && svg.classList.contains("fa-eye")) {
+        passwordInput.type = "text";
+        svg.classList.replace("fa-eye", "fa-eye-slash"); // Change icon
+    } else {
+        passwordInput.type = "password";
+        svg.classList.replace("fa-eye-slash", "fa-eye"); // Change icon back
+    }
+});
 
 // Import Firebase SDKs
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-// import { 
-//     getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification 
+// import {
+//     getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification
 // } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-// import { 
-//     getFirestore, doc, setDoc 
+// import {
+//     getFirestore, doc, setDoc
 // } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 // // Firebase configuration

@@ -4,15 +4,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebas
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
 
+let username = document.getElementById('username');
 let emailField = document.getElementById('email');
 let passwordField = document.getElementById('password');
 let checkbox = document.getElementById('checkbox');
 let form = document.getElementById("form");
 
 const errorMessages = {
-    email: document.getElementById('error1'),
-    password: document.getElementById('error2'),
-    checkbox: document.getElementById('error3')
+    username: document.getElementById('error1'),
+    email: document.getElementById('error2'),
+    password: document.getElementById('error3'),
+    checkbox: document.getElementById('error4')
 };
 
 form.addEventListener('submit', async (e) => {
@@ -20,6 +22,7 @@ form.addEventListener('submit', async (e) => {
     let isValid = true;
 
     let fields = [
+        { input: username, error: errorMessages.username, message: "Username is required" },
         { input: emailField, error: errorMessages.email, message: "Email is required" },
         { input: passwordField, error: errorMessages.password, message: "Password is required" }
     ];
@@ -51,20 +54,40 @@ form.addEventListener('submit', async (e) => {
         const email = emailField.value;  // Fetch email input
         const password = passwordField.value;  // Fetch password input
 
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        const userName = `${username.value}`;
 
-        // Ensure the user has verified their email before allowing login
-        if (user.emailVerified) {
-            alert('Sign-in successful!');
-            window.location.href = "home.html"; // Redirect to home page
-        } else {
-            alert('Please verify your email before logging in.');
+        // 🔹 Save full name in sessionStorage
+        sessionStorage.setItem("username", userName);
+        // console.log("Saved Name:", userName);
+
+        let useNname = sessionStorage.getItem('username');
+        console.log(useNname);
+        
+        let fullName = sessionStorage.getItem('fullName');
+        console.log(fullName);
+        
+        if (fullName && useNname) {
+
+
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Ensure the user has verified their email before allowing login
+            if (user.emailVerified) {
+                alert('Sign-in successful!');
+                window.location.href = "home.html"; // Redirect to home page
+            } else {
+                alert('Please verify your email before logging in.');
+            }
+        }else{
+            errorMessages.username .innerHTML = `Username mismatch`
         }
-    } catch (error) {
+    }
+    catch (error) {
         alert('Invalid Logins: ' + error.message);
         console.error(error.code, error.message);
     }
+
 });
 
 // Your Firebase configuration

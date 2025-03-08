@@ -165,7 +165,7 @@ document.getElementById("logoutButton").addEventListener("click", logOut )
 
 let  welcomeText = document.getElementById('welcomeText')
   function welcome (){
-    let fullName =  sessionStorage.getItem('fullName')
+    let fullName =  sessionStorage.getItem('fullName');
     let greeting = "";
     let date = new Date().getHours();
 
@@ -187,7 +187,7 @@ let  welcomeText = document.getElementById('welcomeText')
           setTimeout(() => {
             welcomeText.innerHTML = ""; // Remove text after fade-out
           }, 5000); // Wait for fade-out to complete
-      }, 10000); // Display for 5 seconds
+      }, 1000); // Display for 5 seconds
   }
   else{
     setTimeout(() => {
