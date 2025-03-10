@@ -24,11 +24,11 @@
     <header>
         <nav>
             <div class="wrapper nav-container" data-aos="fade-down">
-    <div class="hallow" id="hallow">
-        <input type="text" name="" id="searchBox">
-        <div id="noResults" style="display: none;" class="noResults">No results found</div>
-    </div>    
-             
+                <div id="noResults" style="display: none;" class="noResults">No results found</div>
+                <div class="hallow" id="hallow">
+                    <input type="text" name="" id="searchBox">
+                </div>
+
                 <div class="logo">
                     <a href="#home">
 
@@ -45,7 +45,7 @@
                     <div id="toggleBtn">
                         <i class="fa fa-sun"></i>
                     </div>
-                    
+
                     <div class="mobile-search-btn">
                         <span class="search1" id="searchBtn"> <i class="fa fa-search"></i></span>
                     </div>
@@ -95,6 +95,7 @@
             </div>
         </nav>
     </header>
+
     <section class="body" id="home">
         <span id="welcomeText"></span>
 
@@ -562,7 +563,15 @@
 
 
     </section>
-
+    <div class="popup">
+        <!-- Popup Overlay -->
+        <div class="modal-overlay"></div>
+        <!-- Popup Modal -->
+        <div class="modal" id="popup">
+            <p id="showModal"></p>
+            <button class="close-btn">OK</button>
+        </div>
+    </div>
 
     <footer class="foter">
         <div class="foter_container wrapper">

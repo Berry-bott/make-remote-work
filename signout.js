@@ -1,6 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import {   openPopup, closePopup } from "./popup.js";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -28,8 +29,13 @@ const auth = getAuth(app); // Ensure auth is initialized
     signOut(auth)
     .then(() => {
       console.log("User signed out successfully!");
-      alert("Logged out successfully!");
-      window.location.href = "signin.html"; // Redirect to login page
+      openPopup(`Logged out successfully!` );
+      
+      document.querySelectorAll('.close-btn, .modal-overlay').forEach(element => {
+        element.addEventListener('click', () => {
+          window.location.href = "signin.html"; // Redirect to login page
+        });
+    });
     })
     .catch((error) => {
       console.error("Error logging out:", error);
@@ -37,6 +43,8 @@ const auth = getAuth(app); // Ensure auth is initialized
   }
 
 
+  // document.querySelector('.modal-overlay').addEventListener('click',closePopup)
+  // document.querySelector('.close-btn').addEventListener('click',closePopup)
 
 
 

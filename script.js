@@ -54,7 +54,6 @@ faq.forEach((faq) => {
     } else {
       faq.classList.remove("pink");
     }
-
     const icon = faq.querySelector("svg");
     if (icon.classList.contains("fa-plus")) {
       icon.classList.replace("fa-plus", "fa-minus");
@@ -63,7 +62,6 @@ faq.forEach((faq) => {
     }
   });
 });
-
 
 const container = document.addEventListener("click", (event) => {
   let target = event.target;
@@ -86,9 +84,6 @@ function toggleBackground() {
   });
 }
 toggleBackground()
-
-
-
 // This is for searchBar
 
 document.querySelectorAll("#searchBox").forEach(searchBox => {

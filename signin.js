@@ -4,7 +4,7 @@
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
 import togglePassword from "./register.js";
-
+import { openPopup, closePopup } from "./popup.js";
 
 
 // Your Firebase configuration
@@ -34,7 +34,6 @@ const errorMessages = {
     password: document.getElementById('error3'),
     checkbox: document.getElementById('error4')
 };
-
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let isValid = true;
@@ -44,7 +43,6 @@ form.addEventListener('submit', async (e) => {
         { input: emailField, error: errorMessages.email, message: "Email is required" },
         { input: passwordField, error: errorMessages.password, message: "Password is required" }
     ];
-
     // Check if fields are empty
     fields.forEach(field => {
         if (field.input.value.trim() === "") {
@@ -55,7 +53,6 @@ form.addEventListener('submit', async (e) => {
             field.error.innerText = "";
         }
     });
-
     // Checkbox validation (must be checked)
     if (!checkbox.checked) {
         errorMessages.checkbox.innerText = "You must agree to the terms";
@@ -64,40 +61,33 @@ form.addEventListener('submit', async (e) => {
     } else {
         errorMessages.checkbox.innerText = "";
     }
-
     if (!isValid) return;
-
     // Firebase Authentication Logic
     try {
         const email = emailField.value;  // Fetch email input
         const password = passwordField.value;  // Fetch password input
-
+    // togglePassword();
         const userName = `${username.value}`;
-
         // 🔹 Save full name in sessionStorage
         sessionStorage.setItem("username", userName);
         // console.log("Saved Name:", userName);
-
         let useNname = sessionStorage.getItem('username');
         console.log(useNname);
-
         let fullName = sessionStorage.getItem('fullName');
         console.log(fullName);
-
-        if (fullName === useNname) {
-
-
+        if (fullName === useNname || fullName == null) {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-
             // Ensure the user has verified their email before allowing login
-            // document.getElementById('submit').addEventListener('click', () => {
-            //     alert('hi')
-            // })
             if (user.emailVerified) {
                 openPopup(   `Login Successful!  
-                            Redirecting to home...`)
-              
+                            Redirecting to home...` );
+                            document.querySelectorAll('.close-btn, .modal-overlay').forEach(element => {
+                                element.addEventListener('click', () => {
+                                    window.location.href = "home.html"; // Redirect on OK click
+                                });
+                            });
+                           
             } else {
                 openPopup(`Please verify your email before logging in.`)
                 // closePopup("Email Verification Required", "Please verify your email before logging in.");
@@ -108,58 +98,21 @@ form.addEventListener('submit', async (e) => {
         }
     }
     catch (error) {
-        alert('Invalid Logins: ' + error.message);
+        let message = "Invalid Login: " + error.message;
+
+        if (error.code === "auth/user-not-found") {
+            message = "User not found. Please register first.";
+        } else if (error.code === "auth/wrong-password") {
+            message = "Incorrect password. Try again.";
+        } else if (error.code === "auth/invalid-email") {
+            message = "Invalid email format.";
+        }
+    
+        openPopup(message); // Show the correct error message
         console.error(error.code, error.message);
     }
-    togglePassword();
 });
 
-document.querySelector('.modal-overlay').addEventListener('click', closePopup)
-document.querySelector('.close-btn').addEventListener('click', closePopup)
-function closePopup() {
-    document.querySelector('.modal-overlay').style.display = 'none';
-    document.getElementById('popup').style.display = 'none';
-    window.location.href = "home.html";
-
-}
-function openPopup(massage) {
-    //   setTimeout(() => {
-    //             }, 2000); 
-    document.querySelector('.modal-overlay').style.display = 'block';
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('showModal').innerHTML = massage
-  
-}
-
-// let closeBtn = document.querySelector('.modal-overlay')
-// let closeBtn2 = document.querySelector('.close-btn')
-
-// closeBtn.addEventListener('click', closePopup)
-// closeBtn2.addEventListener('click', closePopup)
-
-// function closePopup() {
-//     document.querySelector('.modal-overlay').style.display = 'none';
-//     document.getElementById('popup').style.display = 'none';
-// }
-
-// let welcomeText = document.getElementById('welcomeText')
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//     //   window.location.href = "signin.html"; // Redirect if not logged in
-//     welcomeText.innerText = `Hi, ${user.email}!`;
-//     }
-//   });
-
-
-// import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-
-// Get authentication instance
-// const auth = getAuth();
-
-// Check if user is logged in
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//         let welcomeText = document.getElementById('welcome_text');
-//         welcomeText.innerText = `Hi, ${user.email}!`;
-//     }
-// });
+document.querySelector('.modal-overlay').addEventListener('click',closePopup)
+document.querySelector('.close-btn').addEventListener('click',closePopup)
+// })
