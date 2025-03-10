@@ -66,7 +66,7 @@ form.addEventListener('submit', async (e) => {
     try {
         const email = emailField.value;  // Fetch email input
         const password = passwordField.value;  // Fetch password input
-    // togglePassword();
+        // togglePassword();
         const userName = `${username.value}`;
         // 🔹 Save full name in sessionStorage
         sessionStorage.setItem("username", userName);
@@ -80,14 +80,14 @@ form.addEventListener('submit', async (e) => {
             const user = userCredential.user;
             // Ensure the user has verified their email before allowing login
             if (user.emailVerified) {
-                openPopup(   `Login Successful!  
+                openPopup(`Login Successful!  
                             Redirecting to home...` );
-                            document.querySelectorAll('.close-btn, .modal-overlay').forEach(element => {
-                                element.addEventListener('click', () => {
-                                    window.location.href = "home.html"; // Redirect on OK click
-                                });
-                            });
-                           
+                document.querySelectorAll('.close-btn, .modal-overlay').forEach(element => {
+                    element.addEventListener('click', () => {
+                        window.location.href = "home.html"; // Redirect on OK click
+                    });
+                });
+
             } else {
                 openPopup(`Please verify your email before logging in.`)
                 // closePopup("Email Verification Required", "Please verify your email before logging in.");
@@ -98,7 +98,10 @@ form.addEventListener('submit', async (e) => {
         }
     }
     catch (error) {
-        let message = "Invalid Login: " + error.message;
+        let message;
+        message = "Invalid Login: " + error.message;
+        console.log(error.message);
+        
 
         if (error.code === "auth/user-not-found") {
             message = "User not found. Please register first.";
@@ -107,12 +110,9 @@ form.addEventListener('submit', async (e) => {
         } else if (error.code === "auth/invalid-email") {
             message = "Invalid email format.";
         }
-    
+
         openPopup(message); // Show the correct error message
         console.error(error.code, error.message);
     }
 });
 
-document.querySelector('.modal-overlay').addEventListener('click',closePopup)
-document.querySelector('.close-btn').addEventListener('click',closePopup)
-// })

@@ -1,3 +1,4 @@
+import {   openPopup, closePopup } from "./popup.js";
 // 🛠️ Firebase setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
@@ -96,6 +97,11 @@ function registerUser() {
             sendEmailVerification(user)
                 .then(() => {
                     openPopup(`Verification email sent! Please check your inbox.`);
+                    document.querySelectorAll('.close-btn, .modal-overlay').forEach(element => {
+                        element.addEventListener('click', () => {
+                            window.location.href = "signin.html"; // Redirect on OK click
+                        });
+                    });
                 })
                 .catch((error) => {
                     openPopup("Error sending verification email: " + error.message);
