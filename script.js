@@ -147,15 +147,6 @@ document.querySelectorAll("#searchBtn").forEach(searchBtn => {
   })
 })
 
-// 🔹 Display User Name on Home Page
-// window.onload = function () {
-//   const userNameDisplay = document.getElementById("welcomeText");
-//   const fullName = sessionStorage.getItem("fullName");
-//   if (userNameDisplay && fullName) {
-//       userNameDisplay.innerText = `Welcome, ${fullName}!`;
-//   }
-//   }
-
 document.getElementById("logoutButton").addEventListener("click", logOut)
 
 let welcomeText = document.getElementById('welcomeText')

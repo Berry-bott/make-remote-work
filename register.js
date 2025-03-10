@@ -1,4 +1,4 @@
-import {   openPopup, closePopup } from "./popup.js";
+import { openPopup, closePopup } from "./popup.js";
 // 🛠️ Firebase setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
@@ -116,8 +116,8 @@ let togglePasswordElement = document.querySelector(".toggle-password");
 togglePasswordElement.addEventListener("click", function () {
     togglePassword()
 });
-export default function togglePassword(){
-        let passwordInput = document.getElementById("password");
+export default function togglePassword() {
+    let passwordInput = document.getElementById("password");
 
     let svg = togglePasswordElement.querySelector("svg");
     if (passwordInput.type === "password" && svg.classList.contains("fa-eye")) {
@@ -130,5 +130,5 @@ export default function togglePassword(){
 };
 
 
-document.querySelector('.modal-overlay').addEventListener('click',closePopup)
-document.querySelector('.close-btn').addEventListener('click',closePopup)
+document.querySelector('.modal-overlay').addEventListener('click', closePopup)
+document.querySelector('.close-btn').addEventListener('click', closePopup)
