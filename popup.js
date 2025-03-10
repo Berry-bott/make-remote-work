@@ -8,6 +8,9 @@
     document.querySelector('.modal-overlay').style.display = 'none';
     document.getElementById('popup').style.display = 'none';
 
+    
+        document.querySelector('.modal-overlay').addEventListener('click',closePopup)
+        document.querySelector('.close-btn').addEventListener('click',closePopup)
   }
-  document.querySelector('.modal-overlay').addEventListener('click',closePopup)
-  document.querySelector('.close-btn').addEventListener('click',closePopup)
+
+

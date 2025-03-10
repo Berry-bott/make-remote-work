@@ -129,3 +129,6 @@ export default function togglePassword(){
     }
 };
 
+
+document.querySelector('.modal-overlay').addEventListener('click',closePopup)
+document.querySelector('.close-btn').addEventListener('click',closePopup)
