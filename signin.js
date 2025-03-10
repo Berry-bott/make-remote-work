@@ -6,7 +6,6 @@ import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/fir
 import togglePassword from "./register.js";
 import { openPopup, closePopup } from "./popup.js";
 
-
 // Your Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCEgR134K-jlERV8TkR7J9tS7QZ2A8MumU",
@@ -20,7 +19,6 @@ const firebaseConfig = {
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-
 
 let username = document.getElementById('username');
 let emailField = document.getElementById('email');
