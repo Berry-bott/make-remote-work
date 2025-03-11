@@ -66,16 +66,18 @@ const container = document.addEventListener("click", (event) => {
 // backgroundColor
 
 function toggleBackground() {
-
+let container = document.getElementById('Archievement')
+let containerOne = document.getElementById('team')
   document.getElementById("toggleBtn").addEventListener("click", function () {
     this.style.color = this.style.color === 'black' ? 'white' : 'black';
-
     document.body.classList.toggle("dark-mode");
+    container.classList.toggle("dark-mode");
+    containerOne.classList.toggle("dark-mode");
   });
 }
 toggleBackground()
-// This is for searchBar
 
+// This is for searchBar
 document.querySelectorAll("#searchBox").forEach(searchBox => {
 
 

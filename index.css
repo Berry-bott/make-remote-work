@@ -179,8 +179,8 @@ header nav .nav-container {
   display: none;
 }
 
-body.dark-mode {
-  background-color: #401f3f;
+.dark-mode {
+  background-color: #401f3f !important;
   color: white !important;
   border: white !important;
 
