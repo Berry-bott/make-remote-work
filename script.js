@@ -29,14 +29,6 @@ ancho.forEach((ancho) => {
   ancho.addEventListener("click", togle);
 });
 
-// FOR ----SEARCH BARS---
-
-// search.addEventListener("click", function () {
-//   // alert('hi')
-//   search.style.color = "red";  
-//   form_.classList.toggle("effect-1");
-// });
-
 // ------FOR SCROLL BARS----
 
 window.addEventListener("scroll", () => {
@@ -44,6 +36,7 @@ window.addEventListener("scroll", () => {
     .querySelector("nav")
     .classList.toggle("window-scroll", window.scrollY > 100);
 });
+
 // ----FOR FAQS----
 
 faq.forEach((faq) => {
@@ -67,13 +60,10 @@ const container = document.addEventListener("click", (event) => {
   let target = event.target;
   if (target.matches(".js-btn")) {
     target.previousElementSibling.classList.toggle("hide");
-    //  console.dir(target);
   }
 });
 
-
 // backgroundColor
-
 
 function toggleBackground() {
 
@@ -93,19 +83,20 @@ document.querySelectorAll("#searchBox").forEach(searchBox => {
     if (e.key === "Enter") {
       e.preventDefault(); // Prevent form submission if inside a form
       document.getElementById("searchBtn").click(); // Trigger button click
+      searchBox.value = "";
     }
   });
 })
 
 document.querySelectorAll("#searchBtn").forEach(searchBtn => {
-  searchBtn.addEventListener("click", function () {
-    // alert('hi');
+searchBtn.addEventListener("click", function () {
+
     hallow.classList.toggle("unhide");
 
-
     let searchBox = document.querySelectorAll("#searchBox");
-    searchBox.forEach(searchBox => {
+      // alert('hi')
 
+    searchBox.forEach(searchBox => {
       let filter = searchBox.value.trim().toLowerCase();
 
       let sections = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p"); // Search in headings & paragraphs
@@ -122,10 +113,11 @@ document.querySelectorAll("#searchBtn").forEach(searchBtn => {
               if (text.includes(filter)) {
                 found = true;
                 element.classList.add("highlighted-topic"); // Highlight match
-                document.getElementById("searchBox").value = '';
 
                 if (!firstMatch) {
                   firstMatch = element; // Store first match for scrolling
+            searchBox.innerHTML =`No Result Found`; 
+
                 }
               } else {
                 element.classList.remove("highlighted-topic"); // Remove highlight if no match
@@ -137,14 +129,21 @@ document.querySelectorAll("#searchBtn").forEach(searchBtn => {
             // Scroll to the first match if found
             if (firstMatch) {
               firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+
             }
-          } else {
+          
+          }
+           else {
             document.getElementById("noResults").style.display = "none";
           }
         }
+        
       });
+      searchBox.value = "";
     });
-  })
+  });
+
+
 })
 
 document.getElementById("logoutButton").addEventListener("click", logOut)

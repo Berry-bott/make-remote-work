@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="register.css">
+    <script src="./all.js"></script>
     <title>Contact us</title>
 </head>
 <body>
     <div class="container">
         <div class="form-wrapper">
-          <form action="" id="form" method="get">
-            <h1 class="heading">Contact Us</h1>
+          <form action="https://formsubmit.co/nicholashenrry689@gmail.com" id="form" method="post">
+            <h1 class="heading">Contact Us</h1> 
             <div class="first-field">
               <div class="field">
-                <div class="break">First Name *</div>
-                <input type="text" name="" id="fname" placeholder="John" />
+                <div class="break">First Name *</div>  
+                <input type="text" name="first-name" id="fname" placeholder="John" />
                 <p id="error1"></p>
               </div>
   
               <div class="field">
                 <div class="break">Last Name *</div>
-                <input type="text" name="" id="lname" placeholder="Appleseed" />
+                <input type="text" name="last-name" id="lname" placeholder="Appleseed" />
                 <span id="error2"></span>
               </div>
             </div>
             <div class="second-field">
               <div class="break">Email Address*</div>
-              <input type="text" name="border" id="email" />
+              <input type="text" name="email" id="email"  placeholder="email here"/>
+              <span id="error3"></span>
+            </div>
+            <div class="second-field">
+              <div class="break"><i class="fab fa-whatsapp"></i> Whatsapp Me* <br>
+                <a href="https://wa.me/+2349013829912"> You can Whatsapp me directly</a>
+              </div>
               <span id="error3"></span>
             </div>
             <div class="third-field">
@@ -35,22 +44,14 @@
               <div class="input-cont">
                 <div class="input">
                   <div class="circle">
-                    <img
-                      src="assets/images/icon-radio-selected.svg"
-                      alt=""
-                      id="img1"
-                    />
+                    <input type="radio" name="General Enquiry" id="">
                   </div>
                   <p>General Enquiry</p>
                 </div>
   
                 <div class="input">
                   <div class="circle">
-                    <img
-                      src="assets/images/icon-radio-selected.svg"
-                      alt=""
-                      id="img1"
-                    />
+                   <input type="radio" name="Support Request" id="">
                   </div>
                   <p>Support Request</p>
                 </div>
@@ -60,21 +61,15 @@
             </div>
             <div class="fourth-field">
               <div class="break">Message *</div>
-              <div class="textarea" id="border4"></div>
+              <textarea placeholder="Your Message" class="form-control" name="message" required></textarea>
               <span id="errorText5 error"></span>
             </div>
             <div class="fiveth-field">
-              <div class="flex">
-                <div class="box"></div>
-                <div>I conscent to being contacted b the team *</div>
-              </div>
-              <div id="errorText5"></div>
-              <input type="submit" name="" id="submit" />
+              <input type="submit" name="submit" id="submit" />
             </div>
-            <textarea name="" id=""
-             cols="70" rows="10" maxlength="100"></textarea>
           </form>
         </div>
       </div>
+      <script src="./register.js" type="module"></script>
 </body>
 </html>

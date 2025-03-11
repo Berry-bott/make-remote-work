@@ -5,6 +5,10 @@
     font-family: 'roboto';
     font-family: "poppins";
 }
+html {
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+  }
 
 :root {
     ---primary_color: #6E3781;

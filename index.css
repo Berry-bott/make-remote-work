@@ -13,7 +13,6 @@
   ---secondary_color: #a969bf;
   ---color: #2e1735;
   ---color2: #d6b8e0;
-
   ---roboto-regular {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -27,7 +26,6 @@ html {
 }
 
 body {
-  user-select: none;
   color: var(---color2);
   position: relative;
 
