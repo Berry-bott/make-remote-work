@@ -93,7 +93,7 @@ document.querySelectorAll("#searchBox").forEach(searchBox => {
 document.querySelectorAll("#searchBtn").forEach(searchBtn => {
 searchBtn.addEventListener("click", function () {
 // let hallow = document.getElementById('hallow')
-    hallow.classList.toggle("unhide");
+    // hallow.classList.toggle("unhide");
 
     let searchBox = document.querySelectorAll("#searchBox");
       // alert('hi')
