@@ -90,10 +90,10 @@ document.querySelectorAll("#searchBox").forEach(searchBox => {
   });
 })
 
+
+
 document.querySelectorAll("#searchBtn").forEach(searchBtn => {
 searchBtn.addEventListener("click", function () {
-// let hallow = document.getElementById('hallow')
-    // hallow.classList.toggle("unhide");
 
     let searchBox = document.querySelectorAll("#searchBox");
       // alert('hi')
@@ -127,6 +127,7 @@ searchBtn.addEventListener("click", function () {
             });
 
             document.getElementById("noResults").style.display = found ? "none" : "block";
+            document.getElementById("noResult").style.display = found ? "none" : "block";
 
             // Scroll to the first match if found
             if (firstMatch) {
@@ -137,6 +138,7 @@ searchBtn.addEventListener("click", function () {
           }
            else {
             document.getElementById("noResults").style.display = "none";
+            document.getElementById("noResult").style.display = "none";
           }
         }
         
