@@ -8,8 +8,7 @@
 html {
     overflow-x: hidden !important;
     scroll-behavior: smooth;
-  }
-
+}
 :root {
     ---primary_color: #6E3781;
     ---secondary_color: #A969BF;
@@ -25,14 +24,12 @@ html {
 .Archievement {
     height: 96vh;
     background-color: var(---secondary_color);
-
 }
 
 .Archievement_container {
     display: grid;
     grid-template-columns: 45% 55% !important;
     margin-top: 3rem;
-
 }
 
 .Archievement_left img {
