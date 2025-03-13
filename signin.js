@@ -97,12 +97,15 @@ form.addEventListener('submit', async (e) => {
     catch (error) {
         let message;
         message = `Invalid Login: Check if Username, Email and Passwords are correct  ${error.message} `;
-        if (error.code === "auth/user-not-found") {
+        if (error.message === "auth/user-not-found") {
             message = "User not found. Please register first.";
-        } else if (error.code === "auth/wrong-password") {
+        } else if (error.message === "auth/wrong-password") {
             message = "Incorrect password. Try again.";
         } else if (error.code === "auth/invalid-email") {
             message = "Invalid email format.";
+        }
+         else if (error.code === "auth/network-request-failed") {
+            message = "Please Connect To The Internet";
         }
         openPopup(message); // Show the correct error message
         console.error(error.code, error.message);

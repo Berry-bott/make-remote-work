@@ -96,8 +96,6 @@ document.querySelectorAll("#searchBtn").forEach(searchBtn => {
 searchBtn.addEventListener("click", function () {
 
     let searchBox = document.querySelectorAll("#searchBox");
-      // alert('hi')
-
     searchBox.forEach(searchBox => {
       let filter = searchBox.value.trim().toLowerCase();
 
@@ -125,21 +123,21 @@ searchBtn.addEventListener("click", function () {
                 element.classList.remove("highlighted-topic"); // Remove highlight if no match
               }
             });
-
-            document.getElementById("noResults").style.display = found ? "none" : "block";
-            document.getElementById("noResult").style.display = found ? "none" : "block";
-
-            // Scroll to the first match if found
             if (firstMatch) {
+              // Scroll to the first match if found
               firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
-
             }
+            if (found) {
+              searchBox.placeholder = ""; 
+          } else {
+              searchBox.placeholder = "No Result Found"; 
+              searchBox.classList.add("no-result");
+              
+          }
+          
           
           }
-           else {
-            document.getElementById("noResults").style.display = "none";
-            document.getElementById("noResult").style.display = "none";
-          }
+
         }
         
       });
@@ -149,6 +147,8 @@ searchBtn.addEventListener("click", function () {
 
 
 })
+
+
 
 document.getElementById("logoutButton").addEventListener("click", logOut)
 
